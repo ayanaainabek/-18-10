@@ -1,0 +1,25 @@
+package javaapplication29;
+public class JavaApplication29 {
+    
+    public static void main(String[] args) throws InterruptedException {
+        AnotherTask thread1 = new AnotherTask();
+        
+        thread1.start();
+        
+        for (int i = 0; i < 100; i++) {
+            System.out.println("Thread A : " + i);
+        }
+        thread1.join();
+        
+        System.out.println("Последний поток : ");
+    }
+}
+ 
+class AnotherTask extends Thread {
+    
+    public void run(){
+        for (int i = 0; i < 100; i++) {
+            System.out.println("Thread B : " + i);   
+        }
+        }
+}
